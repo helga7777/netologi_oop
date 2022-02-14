@@ -1,0 +1,148 @@
+class Student:
+    def __init__(self, name, surname, gender):
+        self.name = name
+        self.surname = surname
+        self.gender = gender
+        self.finished_courses = []
+        self.courses_in_progress = []
+        self.grades = {}
+        self.grades_mentor = {}
+        self.courses_attached = []
+
+    def add_courses(course_name):
+        self.finished_course.append(course_name)
+
+    def rate_hw(self, lecturer, course, grade):
+        if isinstance(lecturer, Lecturer) and course in self.courses_attached:
+            if course in lecturer.grades_mentor:
+                lecturer.grades_mentor[course] += [grade]
+            else:
+                lecturer.grades_mentor[course] = [grade]
+        else:
+            return 'Ошибка'
+    def average_grade_mentor(self, name, course):
+        sum = 0
+        for value in best_student.grades_mentor.values():
+            for summa in value:
+                sum += summa
+        grade = sum / len(value)
+        return grade
+
+    def average_grade_student(self, name, course):
+        sum = 0
+        for value in best_student.grades.values():
+            for summa in value:
+                sum += summa
+        grade = sum / len(value)
+        return grade
+    def keys_cours(selfname, course):
+        keys = ''
+        for key in best_student.grades.keys():
+            keys += key
+        return keys
+    def finish_cours(selfname, course):
+        keys = ''
+        for key in best_student.finished_courses:
+            print(key)
+            keys += key
+
+        return keys
+
+    def __str__(self):
+        res = f'\nСтуденты\nИмя: {self.name} \nФамилия: {self.surname}\nСредняя оценка за домашнее задание {Student.average_grade_student(self, self.name, new_best_student.courses_in_progress )}\nКурсы в процессе изучения: {Student.keys_cours(self, self.grades)}\nЗавершенные курсы: {best_student.finished_courses}'
+        return res
+
+    def __lt__(self, other):
+        if not isinstance(other,Student):
+            print('Not a Student')
+            return
+        return self.average_grade_student(self,  "Python" ) < other.average_grade_student(self,  "Python" )
+
+class Mentor:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self.courses_attached = []
+
+class Expert(Mentor):
+     def rate_hw(self, student, course, grade):
+        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
+            if course in student.grades:
+                student.grades[course] += [grade]
+            else:
+                student.grades[course] = [grade]
+        else:
+            return 'Ошибка'
+
+     def __str__(self):
+        res = f'\nЭксперты\nИмя: {self.name} \nФамилия: {self.surname}'
+        return res
+
+class Lecturer(Mentor):
+    def __init__(self,name, surname):
+        super().__init__(name, surname)
+    def __str__(self):
+        # Student.average_grade_mentor(self, name)
+        res = f'\nЛекторы\nИмя: {self.name} \nФамилия: {self.surname}\nСредняя оценка за лекцию {Student.average_grade_mentor(self, self.name, new_best_student.courses_in_progress )}'
+        return res
+
+def _gardes_studets(student, cours):
+    sum = 0
+    for stud, cour in list_student_courses.items():
+        if stud == student:
+            for poisk in cour:
+                if poisk == cours:
+                    for value in best_student.grades_mentor.values():
+                        for summa in value:
+                            sum += summa
+    grade = sum / len(value)
+    return print(grade)
+
+
+
+best_student = Student('Ruoy', 'Eman', 'your_gender')
+best_student.finished_courses += ['Git']
+best_student.courses_in_progress += ['Python']
+best_student.grades['Git'] = [10, 10, 10, 10, 10]
+best_student.grades['Python'] = [10, 10]
+best_student.finish_cours(best_student.finished_courses)
+print(best_student.finished_courses) #здесь выводит прошедний курс, а в стр никак не хочет, не пойму(
+print(best_student.finished_courses)
+print(best_student.courses_in_progress)
+print(best_student.grades)
+
+cool_mentor = Mentor('Some', 'Buddy')
+cool_mentor.courses_attached += ['Python']
+print(cool_mentor.courses_attached)
+
+new_best_student = Student('Ruoy', 'Eman', 'your_gender')
+new_best_student.courses_in_progress += ['Python']
+
+cool_mentor =Expert('Some', 'Buddy')
+cool_mentor.courses_attached += ['Python']
+
+cool_mentor.rate_hw(best_student, 'Python', 10)
+cool_mentor.rate_hw(best_student, 'Python', 10)
+cool_mentor.rate_hw(best_student, 'Python', 10)
+super_mentor = Lecturer('Some', 'Buddy')
+
+print(best_student.grades)
+best_student.grades_mentor['Python'] = [10, 10]
+best_student.rate_hw(best_student, 'Python', 10)
+print(best_student.grades_mentor)
+
+
+print(cool_mentor)
+print(super_mentor)
+print(best_student)
+
+print(best_student > new_best_student)
+
+
+
+list_student = ['Ruoy','Eman']
+list_couses = 'Python'
+all_list_student = ['Ruoy','Eman','Buddy','Some', 'Gita']
+list_student_courses = {'Ruoy': ['Python'], 'Eman':['Python', 'Git'],'Buddy': ['Python'],'Some':['Python', 'Git'], 'Gita':['Python'] }
+_gardes_studets('Ruoy', 'Python')
+# print(list_student_courses)
