@@ -9,7 +9,7 @@ class Student:
         self.grades_mentor = {}
         self.courses_attached = []
 
-    def add_courses(course_name):
+    def add_courses(self,course_name):
         self.finished_course.append(course_name)
 
     def rate_hw(self, lecturer, course, grade):
@@ -35,21 +35,24 @@ class Student:
                 sum += summa
         grade = sum / len(value)
         return grade
-    def keys_cours(selfname, course):
+    def keys_cours(self,course):
         keys = ''
         for key in best_student.grades.keys():
-            keys += key
+            if  key in self.courses_in_progress:
+                keys += key
         return keys
-    def finish_cours(selfname, course):
+    def finish_cours(self, course):
         keys = ''
-        for key in best_student.finished_courses:
-            print(key)
-            keys += key
-
+        for key in course:
+            if key in self.finished_courses:
+                print(key)
+                keys += key
         return keys
 
     def __str__(self):
-        res = f'\nСтуденты\nИмя: {self.name} \nФамилия: {self.surname}\nСредняя оценка за домашнее задание {Student.average_grade_student(self, self.name, new_best_student.courses_in_progress )}\nКурсы в процессе изучения: {Student.keys_cours(self, self.grades)}\nЗавершенные курсы: {best_student.finished_courses}'
+        res = f'\nСтуденты\nИмя: {self.name} \nФамилия: {self.surname}\nСредняя оценка за домашнее задание /' \
+              f'{Student.average_grade_student(self, self.name, new_best_student.courses_in_progress )}\nКурсы в процессе изучения: /' \
+              f'{Student.keys_cours(self, self.grades)}\nЗавершенные курсы: {best_student.finished_courses}'
         return res
 
     def __lt__(self, other):
